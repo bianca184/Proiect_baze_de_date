@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1000.0" prefHeight="662.0" prefWidth="938.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolmanagementsystem.controller.LogIn">
+    <right>
+        <AnchorPane prefHeight="100.0" prefWidth="244.0" BorderPane.alignment="CENTER" />
+    </right>
+    <top>
+        <AnchorPane prefHeight="438.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="305.0" fitWidth="387.0" layoutX="46.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../img/schoolLOGO.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="32.0" fitWidth="37.0" layoutX="770.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../img/lock.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="618.0" layoutY="340.0" prefHeight="22.0" prefWidth="82.0" text="Username" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="618.0" layoutY="399.0" prefHeight="22.0" prefWidth="76.0" text="Password" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="username" layoutX="725.0" layoutY="338.0" prefHeight="26.0" prefWidth="122.0" promptText="Username" />
+                <PasswordField fx:id="password" layoutX="725.0" layoutY="398.0" prefHeight="21.0" prefWidth="123.0" promptText="Password" />
+            <Label fx:id="wrongLogIn" layoutX="720.0" layoutY="287.0" textFill="#ec0a0a" />
+                <Button fx:id="logInButton" layoutX="738.0" layoutY="457.0" mnemonicParsing="false" onAction="#userLogIn" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #FFFFFF;" text="Log In" textFill="#101010" />
+            </children>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+        </AnchorPane>
+    </top>
+</BorderPane>

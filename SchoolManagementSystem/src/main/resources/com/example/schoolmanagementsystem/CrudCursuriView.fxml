@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="600" prefWidth="800" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolmanagementsystem.controller.CourseController">
+    <Button fx:id="backButton" mnemonicParsing="false" onAction="#backSuperAdmin" text="Inapoi" />
+
+    <HBox alignment="CENTER" spacing="10">
+        <Label />
+        <ComboBox fx:id="mandatoryComboBox" prefWidth="150.0" promptText="Obligativitate" />
+        <ComboBox fx:id="activityComboBox" prefWidth="150.0" promptText="Tip activitate" />
+    </HBox>
+
+    <HBox alignment="CENTER" spacing="10">
+        <Label text="Descriere" />
+        <TextField fx:id="descriptionField" />
+        <Label text="Max Studenti:" />
+        <TextField fx:id="maxStudentsField" />
+        <Label text="Materie" />
+        <TextField fx:id="subjectField" />
+    </HBox>
+
+    <HBox alignment="CENTER" spacing="10">
+        <Button onAction="#handleAdd" text="Adauga" />
+        <Button onAction="#handleUpdate" text="Modifica" />
+        <Button onAction="#handleDelete" text="Sterge" />
+    </HBox>
+    <Label fx:id="wrongData" textFill="#f20404" />
+</VBox>
+

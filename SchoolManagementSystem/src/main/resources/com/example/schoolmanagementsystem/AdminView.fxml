@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="700.0" minWidth="1000.0" prefHeight="681.0" prefWidth="938.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolmanagementsystem.controller.AdminController">
+    <children>
+        <Button fx:id="logOutButton" layoutX="858.0" layoutY="29.0" mnemonicParsing="false" onAction="#userLogOut" prefHeight="35.0" prefWidth="102.0" style="-fx-background-color: #ff0000;" text="Deconectare" textFill="#100000">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="deleteUsers" layoutX="219.0" layoutY="274.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #add8e6;" text="Ștergere utilizator" />
+        <TableView fx:id="tableView" layoutY="488.0" prefHeight="197.0" prefWidth="1000.0">
+            <columns>
+                <TableColumn fx:id="userIdColumn" prefWidth="31.999996185302734" text="ID" />
+                <TableColumn fx:id="lastNameColumn" prefWidth="72.79998397827148" text="Nume" />
+                <TableColumn fx:id="firstNameColumn" prefWidth="72.0" text="Prenume" />
+                <TableColumn fx:id="cnpColumn" prefWidth="89.59996032714844" text="CNP" />
+                <TableColumn fx:id="adressColumn" prefWidth="103.99993896484375" text="Adresa" />
+                <TableColumn fx:id="phoneNumberColumn" prefWidth="97.60003662109375" text="Numar telefon" />
+                <TableColumn fx:id="emailColumn" prefWidth="102.39993286132812" text="Email" />
+                <TableColumn fx:id="ibanColumn" prefWidth="91.20001220703125" text="IBAN" />
+                <TableColumn fx:id="contractNumberColumn" prefWidth="76.79998779296875" text="Nr. contract" />
+                <TableColumn fx:id="userRoleColumn" prefWidth="81.60009765625" text="Tip utilizator" />
+                <TableColumn fx:id="usernameColumn" prefWidth="102.39996337890625" text="Nume utilizator" />
+                <TableColumn fx:id="passwordColumn" text="Parola" />
+            </columns>
+        </TableView>
+        <Button fx:id="insertUsers" layoutX="219.0" layoutY="303.0" mnemonicParsing="false" onAction="#insertUser" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #add8e6;" text="Inserare utilizator" />
+        <Button fx:id="updateUsers" layoutX="219.0" layoutY="243.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="26.0" prefWidth="127.0" style="-fx-background-color: #add8e6;" text="Modificare utilizator" />
+        <TextField fx:id="lastName" alignment="TOP_CENTER" layoutX="50.0" layoutY="64.0" promptText="Nume" />
+        <TextField fx:id="firstName" alignment="TOP_CENTER" layoutX="50.0" layoutY="95.0" promptText="Prenume" />
+        <TextField fx:id="cnp" alignment="TOP_CENTER" layoutX="50.0" layoutY="128.0" promptText="CNP" />
+        <TextField fx:id="adress" alignment="TOP_CENTER" layoutX="50.0" layoutY="163.0" promptText="Adresa" />
+        <TextField fx:id="phoneNumber" alignment="TOP_CENTER" layoutX="50.0" layoutY="197.0" promptText="Numar telefon" />
+        <TextField fx:id="email" alignment="TOP_CENTER" layoutX="50.0" layoutY="231.0" promptText="Email" />
+        <TextField fx:id="iban" alignment="TOP_CENTER" layoutX="50.0" layoutY="262.0" promptText="IBAN" />
+        <TextField fx:id="contractNumber" alignment="TOP_CENTER" layoutX="50.0" layoutY="291.0" promptText="Numar contract" />
+        <TextField fx:id="username" alignment="TOP_CENTER" layoutX="50.0" layoutY="362.0" promptText="Nume utilizator" />
+        <TextField fx:id="password" alignment="TOP_CENTER" layoutX="50.0" layoutY="397.0" promptText="Parola" />
+        <TextField fx:id="userSearchField" layoutX="125.0" layoutY="447.0" prefHeight="26.0" prefWidth="795.0" promptText=". . . ." />
+        <Label contentDisplay="CENTER" layoutX="16.0" layoutY="452.0" prefHeight="18.0" prefWidth="102.0" text="Cautare utilizator" textFill="#faf7f7" />
+        <ComboBox fx:id="userRoleComboBox" layoutX="50.0" layoutY="324.0" prefWidth="150.0" promptText="Tip utilizator" />
+        <TextField fx:id="courseNameField" layoutX="355.0" layoutY="64.0" prefHeight="26.0" prefWidth="310.0" promptText="Introduceti numele cusului" />
+        <Button fx:id="searchCourse" layoutX="534.0" layoutY="128.0" mnemonicParsing="false" onAction="#searchForCourse" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #add8e6;" text="Cautare curs" />
+        <TableView fx:id="courseTableView" layoutX="317.0" layoutY="342.0" prefHeight="88.0" prefWidth="474.0">
+            <columns>
+                <TableColumn fx:id="courseDescriptionColumn" prefWidth="167.20001220703125" text="Descriere" />
+                <TableColumn fx:id="courseTypeColumn" minWidth="3.20001220703125" prefWidth="99.19992065429688" text="Obligativitate" />
+                <TableColumn fx:id="courseMaximumStudentsColumn" prefWidth="105.5999755859375" text="Nr. max. studenti" />
+                <TableColumn fx:id="courseActivityTypeColumn" prefWidth="103.2000732421875" text="Tip activitate" />
+            </columns>
+        </TableView>
+        <TextField layoutX="355.0" layoutY="95.0" prefHeight="26.0" prefWidth="310.0" promptText="Introduceti numele profesorului" />
+        <Button layoutX="360.0" layoutY="128.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #add8e6;" text="Asignare profesor la curs" />
+        <Button fx:id="displayStudents" layoutX="364.0" layoutY="163.0" mnemonicParsing="false" onAction="#selectCourse" prefHeight="26.0" prefWidth="169.0" style="-fx-background-color: #add8e6;" text="Vezi studentii inscrisi la curs" />
+        <TableView fx:id="studentsListTableView" layoutX="459.0" layoutY="211.0" prefHeight="115.0" prefWidth="150.0">
+            <columns>
+                <TableColumn fx:id="lastNameColumnCourse" prefWidth="75.0" text="Nume" />
+                <TableColumn fx:id="firstNameColumnCourse" prefWidth="75.0" text="Prenume" />
+            </columns>
+        </TableView>
+        <Label fx:id="wrongData" layoutX="266.0" layoutY="56.0" style="-fx-font: Arial;" textFill="#f70000" />
+        <TableView fx:id="teachersTableView" layoutX="791.0" layoutY="342.0" prefHeight="88.0" prefWidth="114.0">
+            <columns>
+                <TableColumn fx:id="courseTeachersColumn" prefWidth="111.20001220703125" text="Profesori" />
+            </columns>
+        </TableView>
+
+        <AnchorPane />
+          <VBox alignment="CENTER" layoutX="706.0" layoutY="88.0" spacing="10">
+              <Label fx:id="cnpLabel" text="CNP: " />
+              <Label fx:id="numeLabel" text="Nume: " />
+              <Label fx:id="prenumeLabel" text="Prenume: " />
+              <Label fx:id="adresaLabel" text="Adresa: " />
+              <Label fx:id="telefonLabel" text="Telefon: " />
+              <Label fx:id="emailLabel" text="Email: " />
+              <Label fx:id="ibanLabel" text="IBAN: " />
+              <Label fx:id="numarContractLabel" text="Număr Contract: " />
+
+              <!-- Butonul care va apela funcția showPersonalData -->
+              <Button fx:id="personalDataButton" onAction="#showPersonalData" text="Afișează Datele Personale" />
+          </VBox>
+        <Button fx:id="crudCourseButton" layoutX="523.0" layoutY="163.0" mnemonicParsing="false" onAction="#crudCursuri" style="-fx-background-color: #add8e6;" text="Gestionare cursuri" />
+    </children>
+</AnchorPane>

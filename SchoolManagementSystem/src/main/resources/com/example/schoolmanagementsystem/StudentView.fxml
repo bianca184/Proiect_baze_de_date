@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1000.0" prefHeight="704.0" prefWidth="1026.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolmanagementsystem.controller.StudentController">
+    <children>
+        <Button fx:id="logoutButton" layoutX="873.0" layoutY="36.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #ff4c4c;" text="Deconectare" />
+        <!-- Text Fields -->
+        <TextField fx:id="numeField" layoutX="93.0" layoutY="80.0" prefWidth="300.0" promptText="Nume" />
+        <TextField fx:id="prenumeField" layoutX="93.0" layoutY="118.0" prefWidth="300.0" promptText="Prenume" />
+        <TextField fx:id="numeCursField" layoutX="93.0" layoutY="153.0" prefWidth="300.0" promptText="Nume curs" />
+        <TextField fx:id="mesajField" layoutX="93.0" layoutY="310.0" prefWidth="300.0" promptText="Mesaj" />
+
+        <!-- Buttons -->
+        <!-- Buttons -->
+        <Button fx:id="cautareCursButton" layoutX="506.0" layoutY="93.0" onAction="#cautareCurs" text="Căutare curs" />
+        <Button fx:id="inscriereCursButton" layoutX="504.0" layoutY="193.0" onAction="#inscriereCurs" text="Înscriere curs" />
+        <Button fx:id="vizualizareNoteButton" layoutX="506.0" layoutY="244.0" onAction="#vizualizareNote" text="Vizualizare note" />
+        <Button fx:id="vizualizareGrupuriButton" layoutX="506.0" layoutY="359.0" onAction="#vizualizareGrupuri" text="Vizualizare grupuri" />
+        <Button fx:id="trimiteMesajButton" layoutX="507.0" layoutY="419.0" onAction="#trimiteMesaj" text="Trimite mesaj" />
+        <Button fx:id="inscriereGrupButton" layoutX="506.0" layoutY="474.0" onAction="#inscriereGrup" text="Înscriere Grup" />
+        <Button fx:id="parasireGrupButton" layoutX="507.0" layoutY="524.0" onAction="#parasireGrup" text="Părăsire Grup" />
+
+        <Button fx:id="renuntareCursButton" layoutX="506.0" layoutY="140.0" onAction="#renuntareCurs" text="Renunță la Curs" />
+
+
+        <Button fx:id="inscriereActivitateButton" layoutX="506.0" layoutY="573.0" onAction="#handleInscriereActivitate" text="Înscriere Activitate" />
+
+
+
+        <Button fx:id="vizualizareActivitatiButton" layoutX="506.0" layoutY="297.0" onAction="#vizualizareActivitati" prefHeight="25.0" prefWidth="115.0" text="Vizualizare activități" />
+        <AnchorPane layoutX="14.0" layoutY="298.0" prefHeight="553.0" prefWidth="65.0" />
+      <TextField fx:id="numeGrupField" layoutX="93.0" layoutY="193.0" prefWidth="300.0" promptText="Nume grup" />
+      <VBox alignment="CENTER" layoutX="731.0" layoutY="176.0" spacing="10">
+          <Label fx:id="cnpLabel" text="CNP: " />
+          <Label fx:id="numeLabel" text="Nume: " />
+          <Label fx:id="prenumeLabel" text="Prenume: " />
+          <Label fx:id="adresaLabel" text="Adresa: " />
+          <Label fx:id="telefonLabel" text="Telefon: " />
+          <Label fx:id="emailLabel" text="Email: " />
+          <Label fx:id="ibanLabel" text="IBAN: " />
+          <Label fx:id="numarContractLabel" text="Număr Contract: " />
+
+          <!-- Butonul care va apela funcția showPersonalData -->
+          <Button fx:id="personalDataButton" onAction="#showPersonalData" text="Afișează Datele Personale" />
+      </VBox>
+      <TextField fx:id="descriereGrupField" layoutX="93.0" layoutY="232.0" prefWidth="300.0" promptText="Descriere grup" />
+      <Button fx:id="createGroupButton" layoutX="93.0" layoutY="372.0" onAction="#createGroup" prefHeight="25.0" prefWidth="115.0" text="Creare grup" />
+      <Button fx:id="updateGroupButton" layoutX="93.0" layoutY="407.0" onAction="#updateGroup" prefHeight="25.0" prefWidth="115.0" text="Modifica grup" />
+      <Button fx:id="deleteGroupButton" layoutX="93.0" layoutY="449.0" onAction="#deleteGroup" prefHeight="25.0" prefWidth="115.0" text="Sterge grup" />
+      <TextField fx:id="newGroupNameField" layoutX="93.0" layoutY="272.0" prefWidth="300.0" promptText="Nume nou grup" />
+    </children>
+</AnchorPane>

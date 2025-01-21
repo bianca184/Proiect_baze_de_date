@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolmanagementsystem.controller.ProfesorController">
+    <children>
+
+        <!-- Buton Deconectare -->
+        <Button fx:id="logoutButton" layoutX="860.0" layoutY="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #ff4c4c;" text="Deconectare" />
+        <!-- TabPane pentru organizarea funcționalităților -->
+        <TabPane layoutX="10.0" layoutY="50.0" prefHeight="680.0" prefWidth="980.0">
+            <!-- Tab 1: Adăugare și programare activități -->
+            <Tab text="Adăugare Activități">
+                <AnchorPane>
+                    <children>
+                        <Label layoutX="20.0" layoutY="20.0" text="Tip Activitate:" />
+                        <ComboBox fx:id="activityTypeComboBox" layoutX="150.0" layoutY="20.0" prefWidth="200.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Laborator" />
+                                    <String fx:value="Seminar" />
+                                    <String fx:value="Curs" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <Label fx:id="resultLabel" layoutX="200.0" layoutY="300.0" text="Rezultat activitate" />
+
+                        <Label layoutX="20.0" layoutY="60.0" text="Data:" />
+                        <DatePicker fx:id="activityDatePicker" layoutX="150.0" layoutY="60.0" prefWidth="200.0" />
+
+                        <Label layoutX="20.0" layoutY="100.0" text="Materie:" />
+                        <TextField fx:id="activityDescriptionField" layoutX="150.0" layoutY="100.0" prefWidth="400.0" />
+
+                        <Button fx:id="addActivityButton" layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#addActivity" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #add8e6;" text="Adaugă" />
+
+                        <TableView fx:id="activitiesTableView" layoutX="20.0" layoutY="200.0" prefHeight="400.0" prefWidth="940.0">
+                            <columns>
+                                <TableColumn fx:id="activityTypeColumn" prefWidth="200.0" text="Tip Activitate" />
+                                <TableColumn fx:id="activityDateColumn" prefWidth="150.0" text="Data" />
+                                <TableColumn fx:id="activityDescriptionColumn" prefWidth="400.0" text="Materie" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </Tab>
+
+
+            <!-- Tab for Students List -->
+            <Tab text="Liste Studenți">
+                <AnchorPane>
+                    <children>
+                        <TableView fx:id="studentsListTableView" layoutX="20.0" layoutY="80.0" prefHeight="509.0" prefWidth="940.0">
+                            <columns>
+                                <TableColumn fx:id="studentLastNameColumn" prefWidth="200.0" text="Nume" />
+                                <TableColumn fx:id="studentFirstNameColumn" prefWidth="200.0" text="Prenume" />
+                                <TableColumn fx:id="finalGradeColumn" prefWidth="200.0" text="Nota finală" />
+                            </columns>
+                        </TableView>
+                        <HBox alignment="CENTER" layoutX="20.0" layoutY="20.0" spacing="10">
+                            <Label text="Introdu numele cursului:" />
+                            <TextField fx:id="courseNameField" promptText="Nume curs" />
+                            <Button fx:id="selectCourseButton" onAction="#selectCourse" text="Alege Curs" />
+                        </HBox>
+                        <VBox alignment="CENTER" layoutX="860.0" layoutY="630.0" spacing="10" />
+                        <Button fx:id="downloadCatalogButton" layoutX="860.0" layoutY="45.0" mnemonicParsing="false" onAction="#downloadCatalog" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #add8e6;" text="Descarcă" />
+                    </children>
+                </AnchorPane>
+            </Tab>
+            <Tab text="Notare Studenți">
+                <AnchorPane>
+                    <children>
+                        <VBox alignment="TOP_CENTER" spacing="10" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+
+                            <!-- Layout for Ponderi and Form for input -->
+                            <HBox alignment="CENTER_LEFT" spacing="20" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                <!-- Ponderi Section on the Left -->
+                                <VBox alignment="TOP_LEFT" prefWidth="200.0" spacing="10">
+                                    <Label text="Ponderi Seminar:" />
+                                    <TextField fx:id="seminarWeightField" prefWidth="100.0" promptText="Pondere seminar" />
+                                    <Label text="Ponderi Laborator:" />
+                                    <TextField fx:id="laboratorWeightField" prefWidth="100.0" promptText="Pondere laborator" />
+                                    <Label text="Ponderi Curs:" />
+                                    <TextField fx:id="cursWeightField" prefWidth="100.0" promptText="Pondere curs" />
+                                    <!-- Save Button below weights -->
+                                    <Button fx:id="saveButton" onAction="#saveGrades" text="Salvează" />
+
+                                </VBox>
+
+                                <!-- Form Section on the Right -->
+                                <VBox alignment="TOP_LEFT" prefWidth="400.0" spacing="10">
+                                    <!-- Form to input student data -->
+                                    <GridPane hgap="10" prefHeight="229.0" prefWidth="960.0" vgap="10">
+                                        <Label text="Nume Student:" GridPane.rowIndex="0" />
+                                        <TextField fx:id="studentNameField" promptText="Nume student" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                        <Label text="Prenume Student:" GridPane.rowIndex="1" />
+                                        <TextField fx:id="studentPrenumeField" promptText="Prenume student" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                        <Label text="Nume Curs:" GridPane.rowIndex="2" />
+                                        <TextField fx:id="cursNameField" promptText="Nume curs" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                        <Label text="Nota Seminar:" GridPane.rowIndex="3" />
+                                        <TextField fx:id="seminarGradeField" promptText="Nota seminar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                        <Label text="Nota Laborator:" GridPane.rowIndex="4" />
+                                        <TextField fx:id="laboratorGradeField" promptText="Nota laborator" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                                        <Label text="Nota Curs:" GridPane.rowIndex="5" />
+                                        <TextField fx:id="cursGradeField" promptText="Nota curs" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                                        <!-- Label for displaying result -->
+                                        <Label fx:id="resultLabel1" text="" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <columnConstraints>
+                                            <ColumnConstraints />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                        </rowConstraints>
+                                    </GridPane>
+                                </VBox>
+                            </HBox>
+
+                            <!-- Table with Students below the input form -->
+                            <TableView fx:id="studentsTableView" prefHeight="314.0" prefWidth="960">
+                                <columns>
+                                    <TableColumn fx:id="studentNameColumn" text="Nume" />
+                                    <TableColumn fx:id="studentPrenumeColumn" text="Prenume" />
+                                    <TableColumn fx:id="cursNameColumn" text="Nume curs" />
+                                    <TableColumn fx:id="seminarGradeColumn" text="Seminar" />
+                                    <TableColumn fx:id="laboratorGradeColumn" text="Laborator" />
+                                    <TableColumn fx:id="cursGradeColumn" text="Curs" />
+                                    <TableColumn fx:id="averageGradeColumn" text="Media Ponderată" />
+                                </columns>
+                            </TableView>
+
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </Tab>
+            <Tab text="Date Personale">
+                <AnchorPane>
+                    <children>
+                        <VBox alignment="CENTER" layoutX="100" layoutY="50" spacing="10">
+                            <Label fx:id="cnpLabel" text="CNP: " />
+                            <Label fx:id="numeLabel" text="Nume: " />
+                            <Label fx:id="prenumeLabel" text="Prenume: " />
+                            <Label fx:id="adresaLabel" text="Adresa: " />
+                            <Label fx:id="telefonLabel" text="Telefon: " />
+                            <Label fx:id="emailLabel" text="Email: " />
+                            <Label fx:id="ibanLabel" text="IBAN: " />
+                            <Label fx:id="numarContractLabel" text="Număr Contract: " />
+
+                            <!-- Butonul care va apela funcția showPersonalData -->
+                            <Button fx:id="personalDataButton" onAction="#showPersonalData" text="Afișează Datele Personale" />
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </Tab>
+
+            <Tab text="Înscriere în activități de grup">
+                <AnchorPane>
+                    <children>
+                        <ComboBox fx:id="groupActivityComboBox" layoutX="68.0" layoutY="80.0" prefHeight="26.0" prefWidth="514.0" promptText="Activitate grup de studiu" />
+                        <Button layoutX="601.0" layoutY="80.0" mnemonicParsing="false" onAction="#addProffesorToGroupActivity" prefHeight="26.0" prefWidth="112.0" text="Înscriere activitate" />
+                        <Label fx:id="wrongData" layoutX="700.0" layoutY="150.0" textFill="#980511" />
+                    </children></AnchorPane>
+            </Tab>
+        </TabPane>
+    </children>
+</AnchorPane>
